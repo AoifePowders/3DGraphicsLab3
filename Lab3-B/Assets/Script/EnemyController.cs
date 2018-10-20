@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody rigidBody;
+
+    public GameObject Bolt;
     static bool goLeft = false;
     private int timer = 300;
 
@@ -33,16 +35,26 @@ public class EnemyController : MonoBehaviour
             timer = 300;
         }
 
-        if(transform.position.x >= 10)
+        //if (transform.position.x >= 10)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+        //    goLeft = true;
+        //}
+        //if (transform.position.x <= -10)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+        //    goLeft = false;
+        //}
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bolt")
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
-            goLeft = true;
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
-        if(transform.position.x <= -10)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
-            goLeft = false;
-        }
+       
     }
 
 }
