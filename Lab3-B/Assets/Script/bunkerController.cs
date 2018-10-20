@@ -39,6 +39,7 @@ public class bunkerController : MonoBehaviour
     {
         if (other.tag == "Bolt")
         {
+            transform.localScale -= new Vector3(0.5f, 0.3f, 0);
             decrementHealth(damage);
             UpdateScore();
             Destroy(other.gameObject);
