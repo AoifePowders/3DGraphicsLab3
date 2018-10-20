@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody rigidBody;
     static bool goLeft = false;
+    private int timer = 300;
+
 
     void Update()
     {
@@ -16,6 +18,19 @@ public class EnemyController : MonoBehaviour
         else
         {
             transform.position = new Vector3(transform.position.x + (5 * Time.deltaTime), transform.position.y, transform.position.z);
+        }
+
+        timer -= 1;
+        if(timer < 2)
+        {
+            int randomNumber = Random.Range(0, 4);
+            int num = randomNumber;
+
+            if(num == 2)
+            {
+                //fire
+            }
+            timer = 300;
         }
 
         if(transform.position.x >= 10)
