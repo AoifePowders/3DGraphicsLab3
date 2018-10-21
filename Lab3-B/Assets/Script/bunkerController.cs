@@ -35,6 +35,8 @@ public class bunkerController : MonoBehaviour
         bunkerText.text =health.ToString();
     }
 
+  
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bolt")
