@@ -47,7 +47,15 @@ public class bunkerController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if(health == 0)
+        if (other.tag == "EnemyBolt")
+        {
+            transform.localScale -= new Vector3(0.5f, 0.3f, 0);
+            decrementHealth(damage);
+            UpdateScore();
+            Destroy(other.gameObject);
+        }
+
+        if (health == 0)
         {
             Destroy(gameObject);
             Destroy(bunkerText);

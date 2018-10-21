@@ -9,8 +9,8 @@ public class EnemyController : MonoBehaviour
 
     static bool goLeft = false;
     private int timer = 300;
-    public GameObject Bolt;
-
+    public GameObject enemyBullet;
+    public Transform enemyShotSpawn;
     private AudioSource audio;
 
 
@@ -46,42 +46,35 @@ public class EnemyController : MonoBehaviour
             transform.position = new Vector3(transform.position.x + (5 * Time.deltaTime), transform.position.y, transform.position.z);
         }
 
-        //timer -= 1;
-        //if(timer < 2)
-        //{
-        //    int randomNumber = Random.Range(0, 4);
-        //    int num = randomNumber;
+        timer -= 1;
+        if (timer < 2)
+        {
+            int randomNumber = Random.Range(0, 4);
+            int num = randomNumber;
 
-        //    if(num == 2)
-        //    {
-        //        //fire
-        //    }
-        //    timer = 300;
-        //}
+            if (num == 2)
+            {
+                Instantiate(enemyBullet, enemyShotSpawn.position, enemyShotSpawn.rotation);
+            }
+            timer = 300;
+        }
 
         if (transform.position.x >= 45)
         {
-            transform.position= new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
             goLeft = true;
         }
-        if (transform.position.x  <=  -45)
+        if (transform.position.x <=  -45)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
             goLeft = false;
         }
     }
 
-
-
-
-
-
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bolt")
         {
-
             audio.Play();
             gameController.incrementScore(scoreValue);
             Destroy(other.gameObject);

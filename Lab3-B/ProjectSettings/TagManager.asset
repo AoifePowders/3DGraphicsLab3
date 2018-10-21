@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Bunker
   - Bolt
+  - EnemyBolt
   layers:
   - Default
   - TransparentFX

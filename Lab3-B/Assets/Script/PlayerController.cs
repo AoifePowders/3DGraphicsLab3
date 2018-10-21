@@ -22,12 +22,31 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
+    public float lives;
+
+
+    private GameController gameController;
+    int damageDone;
 
     // Use this for initialization
     void Start ()
     {
+        damageDone = 1;
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+
+        if (gameController == null)
+        {
+            Debug.Log("Cannot Find Game Controller Script");
+        }
+
         rb = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
+        
     }
 
     void Update()
@@ -54,6 +73,23 @@ public class PlayerController : MonoBehaviour
                 Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
                 0.0f      
             );
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EnemyBolt")
+        {
+            lives--;
+            gameController.decrementLives(damageDone);
+            if (lives <= 0)
+            {
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            
+
+            }
+        }
+
     }
 
 }
