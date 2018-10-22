@@ -32,14 +32,6 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (goLeft)
-        {
-            transform.position = new Vector3(transform.position.x - (5 * Time.deltaTime), transform.position.y, transform.position.z);
-        }
-        else
-        {
-            transform.position = new Vector3(transform.position.x + (5 * Time.deltaTime), transform.position.y, transform.position.z);
-        }
 
         timer -= 1;
         if (timer < 2)
@@ -52,17 +44,6 @@ public class EnemyController : MonoBehaviour
                 Instantiate(enemyBullet, enemyShotSpawn.position, enemyShotSpawn.rotation);
             }
             timer = 300;
-        }
-
-        if (transform.position.x >= 45)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
-            goLeft = true;
-        }
-        if (transform.position.x <=  -45)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f);
-            goLeft = false;
         }
     }
 
