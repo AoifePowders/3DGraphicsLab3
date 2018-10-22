@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private Rigidbody rigidBody;
-
-
     static bool goLeft = false;
     private int timer = 300;
     public GameObject enemyBullet;
@@ -21,7 +18,6 @@ public class EnemyController : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
 
-        rigidBody = GetComponent<Rigidbody>();
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
 
         if (gameControllerObject != null)

@@ -8,6 +8,7 @@ TagManager:
   - Bunker
   - Bolt
   - EnemyBolt
+  - MysteryShip
   layers:
   - Default
   - TransparentFX
