@@ -25,12 +25,15 @@ public class PlayerController : MonoBehaviour
     public float lives;
 
 
+
     private GameController gameController;
     int damageDone;
 
     // Use this for initialization
     void Start ()
     {
+        //origTrans.position = transform.position;
+
         damageDone = 1;
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
 
@@ -46,7 +49,8 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
-        
+
+
     }
 
     void Update()
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             audio.Play();
         }
+
     }
 
     // Update is called once per frame
@@ -64,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0, -30.0f);
+        Vector3 movement = new Vector3(moveHorizontal, 0, -30);
 
         rb.velocity = movement * speed;
 
@@ -79,7 +84,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "EnemyBolt")
         {
-            lives--;
+            Instantiate(gameObject, transform.position = new Vector3(0,0,-30), transform.rotation);
+            lives -= 1;
             gameController.decrementLives(damageDone);
             if (lives <= 0)
             {
@@ -89,6 +95,11 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
+    }
+
+    void respawn()
+    {
 
     }
 
