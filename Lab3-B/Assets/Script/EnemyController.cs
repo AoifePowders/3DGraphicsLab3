@@ -17,7 +17,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
-
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
 
         if (gameControllerObject != null)
