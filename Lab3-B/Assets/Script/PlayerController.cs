@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private float nextFire;
 
-    public float lives;
+    public int lives;
 
 
 
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        //origTrans.position = transform.position;
 
         damageDone = 1;
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
@@ -49,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
+
+        rb.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
 
     }
@@ -69,39 +70,36 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0, -30);
+        Vector3 movement = new Vector3(moveHorizontal, 0, 0);
+
+
 
         rb.velocity = movement * speed;
 
-        rb.position = new Vector3
-            (
-                Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
-                0.0f      
-            );
+        //rb.position = new Vector3
+        //    (
+        //        Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+        //        0.0f      
+        //    );
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "EnemyBolt")
         {
-            Instantiate(gameObject, transform.position = new Vector3(0,0,-30), transform.rotation);
-            lives -= 1;
-            gameController.decrementLives(damageDone);
-            if (lives <= 0)
-            {
-                Destroy(other.gameObject);
-                Destroy(gameObject);
-            
-
-            }
+                    Instantiate(gameObject, rb.transform.position = new Vector3(0,0, z: -36), rb.transform.rotation);
+                    lives -= 1;
+                    gameController.decrementLives(damageDone);
+                    if (lives == 0)
+                    {
+                      Destroy(other.gameObject);
+                      Destroy(gameObject);     
+                    }
         }
 
     }
 
-    void respawn()
-    {
 
-    }
 
 }
 

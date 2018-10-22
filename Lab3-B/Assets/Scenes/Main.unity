@@ -137,7 +137,7 @@ MonoBehaviour:
     xMax: 45
     zMin: 0
     zMax: 0
-  lives: 0
+  lives: 1
 --- !u!54 &22406237
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3596,7 +3596,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 993766621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.75}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1527390246}
@@ -3885,6 +3885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ccd76ed20e90e47827530a787b5d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 10
 --- !u!64 &1022981689
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6577,7 +6578,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_LocalRotation.x
