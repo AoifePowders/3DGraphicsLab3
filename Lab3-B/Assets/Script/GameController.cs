@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public int startWait;
+
     //Text for score
     public GUIText score;
     private int scoreV;
@@ -18,13 +20,34 @@ public class GameController : MonoBehaviour
     //Text for lose condition
     public GUIText win;
 
+    //Text for restart
+    public GUIText restartText;
+
+    private bool restart;
+    private bool gameOver;
+
     void Start ()
     {
+        restart = false;
+        gameOver = false;
+        restartText.text = "";
         scoreV = 0;
         livesLeft = 3;
         UpdateScore();
         UpdateLives();
     }
+
+    void Update()
+    {
+        if (restart == true)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+        }
+    }
+
 
     public void incrementScore(int newScore)
     {
@@ -57,11 +80,27 @@ public class GameController : MonoBehaviour
     public void loseGame()
     {
         lose.text = "You Lose";
+        gameOver = true;
+        if (gameOver == true)
+        {
+            restartText.text = "Press 'R' to Restart";
+            restart = true;
+        }
+
+     
     }
 
     public void winGame()
     {
         win.text = "You Win";
+        gameOver = true;
+
+        if (gameOver == true)
+        {
+            restartText.text = "Press 'R' to Restart";
+            restart = true;
+        }
+
     }
 
 }

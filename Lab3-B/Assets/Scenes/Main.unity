@@ -131,7 +131,7 @@ MonoBehaviour:
   speed: 60
   shot: {fileID: 1746974706268196, guid: 2cfefa44069adc44aa16e8e5b6cdfb28, type: 2}
   shotSpawn: {fileID: 82232651}
-  fireRate: 0.5
+  fireRate: 0.1
   boundary:
     xMin: -45
     xMax: 45
@@ -371,10 +371,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d16d8cffd7aa64488fc14952fe4d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startWait: 1
   score: {fileID: 1040903611}
   lives: {fileID: 1563388384}
+  livesLeft: 0
   lose: {fileID: 1953714310}
   win: {fileID: 2011051075}
+  restartText: {fileID: 2088475783}
 --- !u!4 &71058992
 Transform:
   m_ObjectHideFlags: 0
@@ -625,6 +628,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1347165842}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &75430829
 Rigidbody:
@@ -1014,6 +1018,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1481298106}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &227443693
 Rigidbody:
@@ -1215,6 +1220,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1929917414}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &237717948
 Rigidbody:
@@ -1568,6 +1574,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1845765049}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &389952934
 Rigidbody:
@@ -1850,6 +1857,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 2093646056}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &589613349
 Rigidbody:
@@ -2131,6 +2139,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 350081877}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &621182451
 Rigidbody:
@@ -2332,6 +2341,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 474567225}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &696945290
 Rigidbody:
@@ -2692,6 +2702,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1567858366}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &774083853
 Rigidbody:
@@ -3018,6 +3029,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 32768172}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &804387335
 Rigidbody:
@@ -3219,6 +3231,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 73031871}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &888764089
 Rigidbody:
@@ -3504,6 +3517,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 445474585}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &973911980
 Rigidbody:
@@ -3785,6 +3799,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1635804309}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &996006276
 Rigidbody:
@@ -4353,6 +4368,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 35425625}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1184787726
 Rigidbody:
@@ -4554,6 +4570,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1967030498}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1200085142
 Rigidbody:
@@ -4858,6 +4875,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 761600741}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1410159982
 Rigidbody:
@@ -5130,6 +5148,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 993766622}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!82 &1527390250
 AudioSource:
@@ -5448,6 +5467,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1956019291}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1651084838
 Rigidbody:
@@ -5649,6 +5669,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 618482766}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1664562694
 Rigidbody:
@@ -6020,6 +6041,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1129128913}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1845210377
 Rigidbody:
@@ -6249,6 +6271,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 269426509}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1874632490
 Rigidbody:
@@ -6558,6 +6581,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 2133044599}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &1961707551
 Rigidbody:
@@ -6978,6 +7002,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 2095590069}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &2038467021
 Rigidbody:
@@ -7207,6 +7232,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 2040041030}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &2052683370
 Rigidbody:
@@ -7308,9 +7334,62 @@ Transform:
   - {fileID: 1563388383}
   - {fileID: 1953714311}
   - {fileID: 2011051076}
+  - {fileID: 2088475782}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2088475781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2088475782}
+  - component: {fileID: 2088475783}
+  m_Layer: 0
+  m_Name: Restart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2088475782
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088475781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2063209239}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!132 &2088475783
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2088475781}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: RestartText
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 500, y: 500}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 20
+  m_FontStyle: 3
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278386432
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &2092371495
 GameObject:
   m_ObjectHideFlags: 0
@@ -7560,6 +7639,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1383034224108748, guid: 90cb2260ccdff3c48af2cd029a6fd912,
     type: 2}
   enemyShotSpawn: {fileID: 1110422239}
+  enemyBlock: {fileID: 0}
   scoreValue: 1
 --- !u!54 &2142215593
 Rigidbody:
