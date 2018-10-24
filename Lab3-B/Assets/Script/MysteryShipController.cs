@@ -7,7 +7,7 @@ public class MysteryShipController : MonoBehaviour
     int speed = 10;
     int timer = 0;
 
-    public int scoreValue;
+    public int scoreValue = 10;
     private GameController gameController;
 
 

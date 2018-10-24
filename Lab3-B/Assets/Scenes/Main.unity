@@ -373,6 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 1040903611}
   lives: {fileID: 1563388384}
+  lose: {fileID: 1953714310}
+  win: {fileID: 2011051075}
 --- !u!4 &71058992
 Transform:
   m_ObjectHideFlags: 0
@@ -6347,6 +6349,58 @@ Transform:
   m_Father: {fileID: 237717945}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1953714309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1953714311}
+  - component: {fileID: 1953714310}
+  m_Layer: 0
+  m_Name: LoseText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &1953714310
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1953714309}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 500, y: 500}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 20
+  m_FontStyle: 3
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278386432
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1953714311
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1953714309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2063209239}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1956019290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6678,6 +6732,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2011051074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2011051076}
+  - component: {fileID: 2011051075}
+  m_Layer: 0
+  m_Name: WinText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &2011051075
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011051074}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 500, y: 500}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 20
+  m_FontStyle: 3
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278386432
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &2011051076
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011051074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2063209239}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017417915
 GameObject:
   m_ObjectHideFlags: 0
@@ -7200,6 +7306,8 @@ Transform:
   m_Children:
   - {fileID: 1040903610}
   - {fileID: 1563388383}
+  - {fileID: 1953714311}
+  - {fileID: 2011051076}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMover : MonoBehaviour {
 
     static bool goLeft = false;
-
     // Update is called once per frame
     void FixedUpdate ()
     {

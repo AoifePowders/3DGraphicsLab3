@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             audio.Play();
         }
-
     }
 
     // Update is called once per frame
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0, 0);
 
-
+  
 
         rb.velocity = movement * speed;
 
@@ -87,18 +86,25 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "EnemyBolt")
         {
-                    Instantiate(gameObject, rb.transform.position = new Vector3(0,0, z: -36), rb.transform.rotation);
-                    lives -= 1;
-                    gameController.decrementLives(damageDone);
-                    if (lives == 0)
-                    {
-                      Destroy(other.gameObject);
-                      Destroy(gameObject);     
-                    }
+            Destroy(other.gameObject);
+
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            lives -= 1;
+            gameController.decrementLives(damageDone);
+
+            if (lives == -2)
+            {
+                die();
+            }
         }
 
     }
 
+    void die()
+    {
+        gameController.loseGame();
+        Destroy(gameObject);
+    }
 
 
 }

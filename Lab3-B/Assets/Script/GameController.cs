@@ -7,14 +7,17 @@ public class GameController : MonoBehaviour
     //Text for score
     public GUIText score;
     private int scoreV;
-    //
-
+  
     //Text for lives
     public GUIText lives;
-    private int livesLeft;
+    public int livesLeft;
 
-    //
-    // Use this for initialization
+    //Text for lose condition
+    public GUIText lose;
+
+    //Text for lose condition
+    public GUIText win;
+
     void Start ()
     {
         scoreV = 0;
@@ -32,6 +35,10 @@ public class GameController : MonoBehaviour
     void UpdateScore()
     {
         score.text = "Score: " + scoreV;
+        if(scoreV == 34)
+        {
+            winGame();
+        }
     }
 
 
@@ -47,5 +54,14 @@ public class GameController : MonoBehaviour
         lives.text = "Lives : " + livesLeft;
     }
 
+    public void loseGame()
+    {
+        lose.text = "You Lose";
+    }
+
+    public void winGame()
+    {
+        win.text = "You Win";
+    }
 
 }

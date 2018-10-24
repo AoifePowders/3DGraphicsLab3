@@ -9,13 +9,16 @@ public class EnemyController : MonoBehaviour
     public GameObject enemyBullet;
     public Transform enemyShotSpawn;
     private AudioSource audio;
-
+    private int enemyNo;
+    public GameObject enemyBlock;
 
     //For Scoring 
     public int scoreValue;
     private GameController gameController;
     void Start()
     {
+        enemyNo = 24;
+
         audio = GetComponent<AudioSource>();
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
 
@@ -45,6 +48,16 @@ public class EnemyController : MonoBehaviour
             }
             timer = 300;
         }
+
+        if (enemyNo == 0)
+        {
+            gameController.winGame();
+        }
+
+        if (gameController.livesLeft == 0)
+        {
+            enemyBlock.GetComponent<EnemyMover>().enabled = false;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -55,10 +68,15 @@ public class EnemyController : MonoBehaviour
             gameController.incrementScore(scoreValue);
             Destroy(other.gameObject);
             Destroy(gameObject);
+            enemyNo -= 1;
         }
-       
+
+        if (other.tag == "Player")
+        {
+            enemyBlock.GetComponent<EnemyMover>().enabled = false;
+            gameController.loseGame();   
+        }
+
+
     }
-
- 
-
 }
