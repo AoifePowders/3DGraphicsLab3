@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
+    GameObject varGameObject;
+
     public int startWait;
 
     //Text for score
@@ -28,6 +31,9 @@ public class GameController : MonoBehaviour
 
     void Start ()
     {
+
+       
+
         restart = false;
         gameOver = false;
         restartText.text = "";
@@ -83,6 +89,7 @@ public class GameController : MonoBehaviour
         gameOver = true;
         if (gameOver == true)
         {
+            GameObject.Find("EnemyBlock").GetComponent<EnemyMover>().enabled = false;
             restartText.text = "Press 'R' to Restart";
             restart = true;
         }
@@ -97,9 +104,12 @@ public class GameController : MonoBehaviour
 
         if (gameOver == true)
         {
+            GameObject.Find("EnemyBlock").GetComponent<EnemyMover>().enabled = false;
             restartText.text = "Press 'R' to Restart";
             restart = true;
         }
+
+        
 
     }
 

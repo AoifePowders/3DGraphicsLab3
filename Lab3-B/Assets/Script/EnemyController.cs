@@ -35,13 +35,13 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        //Generates a random number between 1 and 4 and does this for each enemy so only some shoot at a time
         timer -= 1;
         if (timer < 2)
         {
             int randomNumber = Random.Range(0, 4);
             int num = randomNumber;
-
+            
             if (num == 2)
             {
                 Instantiate(enemyBullet, enemyShotSpawn.position, enemyShotSpawn.rotation);
